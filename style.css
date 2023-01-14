@@ -1,0 +1,718 @@
+/* General
+- position: used mostly to alter the placement of called elements. There is a mix of relative and absolute values because there are times where I don't want an empty space to be left behind.
+- hover: is sometimes used to make elements appear when they are out of screen as well as change colours to indicate an interaction can be done there
+- to help give individual styles, I would specify whether the child selectors are first-of-type, last-of-type, nth-of-type, nth-child etc.
+- float: helps with stacking certain elements are even positioning them to beside each other by left or right
+*/
+/* The colour palette for the site was inspired by a post made on Pinterest
+Reference: Minchillo, B. (May, 2021). "Elegant Red, Blue & White Color Scheme >> Blue". Pinterest. Retrieved from https://www.pinterest.com.au/pin/58969076361083423/ */
+
+/* The asteriks means that it applies to the entire site */
+* {
+    font-family: 'Georgia';
+}
+/* Making the height to be 100% in html and body allows the colour backgrounds (TrumpSide and ObamaSide section) to fill the page and not leave any white gaps */
+
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+/* To create the two different sided colours I used linear-gradient which was taken from a post in stack overflow
+Reference: justisb & yummypasta. (June 3, 2018). "CSS: Set a background color which is 50% of the width of the window". stack overflow. Retrieved from https://stackoverflow.com/questions/8541081/css-set-a-background-color-which-is-50-of-the-width-of-the-window */
+/* To hide the left over space on the right side I used overflow-x to hide it
+Reference: Williams, R. (January 6, 2011). 'White space showing up on right side of page when background image should extend full length of page [closed]'. stackoverflow. Retrieved from https://stackoverflow.com/questions/4617872/white-space-showing-up-on-right-side-of-page-when-background-image-should-extend */
+body {
+    overflow-x: hidden; 
+    margin: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #bd2a2af5 50%, #47abd8 50%);
+}
+/* Will hide the vertical scrollbar */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+h3 {
+    font-size: 35px;
+}
+img {
+    display: block;
+}
+
+/* Splits the content in half and puts the Obama side next to the Trump side */
+.content {
+    position: relative;
+    top: 45em;
+    float: left;
+    clear: both;
+    width: 100%;
+    margin: 40px 0;
+}
+.content div {
+    float: left;
+    width: 50%;
+}
+
+/* These are the paragraphs that cross both sides so need there own sections and thus styles */
+#paragraph1, #paragraph2, #paragraph3, #paragraph6 {
+    padding: 0 5em;
+    line-height: 50px;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 3px 3px 3px black;
+    color: white;
+}
+
+/* Style for all the image credits and other a tags used in the site */
+#credit {
+    position: relative;
+    top: 15px;
+    left: 37em;
+    color: white;
+}
+a {
+    color: rgb(21, 56, 121);
+}
+#credit:hover, a:hover {
+    color: gold;
+}
+
+/* Vertical Navigation Bar
+Reference: w3schools. (n.d.). 'CSS Vertical Navigation Bar'. Retrieved from https://www.w3schools.com/css/css_navbar_vertical.asp */
+/* The z-index allows the nav bar to appear above all the contents as its on layer 100 */
+nav {
+    z-index: 100;
+    position: fixed;
+    height: 46%;
+}
+nav ul {
+    position: absolute;
+    top: 5%;
+    left: -12.5em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #f1f1f1;
+    border-right: 25px solid goldenrod;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: 0.5s ease-in-out;
+    animation: shiny 4s infinite;
+    cursor: pointer;
+}
+/* Reference: w3schools. (2021). 'CSS Animations'. Retrieved from https://www.w3schools.com/css/css3_animations.asp */
+@keyframes shiny {
+    0% {border-color: gold;};
+    50% {border-color: goldenrod;};
+    100% {border-color: gold;};
+}
+nav ul:hover {
+    left: 0;
+}
+nav li a {
+    display: block;
+    color: #000;
+    padding: 20px 15px;
+    text-decoration: none;
+    font-weight: bolder;
+}
+nav li a:hover {
+    background-color: #774371;
+    color: white;
+}
+
+/* Heading  */
+/* Speech bubble title */
+.titleBubble {
+    position: absolute;
+    left: 23%;
+    animation: jump 4s infinite;
+}
+@keyframes jump {
+    0% {top: 0;}
+    50% {top: 2em;}
+    100% {top: 0;}
+}
+.titleBubble h1, .titleBubble h2 {
+    border-radius: 80px;
+    text-align: center;
+    background-color: #e7f9ff;
+}
+.titleBubble h1 {
+    padding: 70px 70px 90px 70px;
+    font-size: 70px;
+}
+.titleBubble h2 {
+    position: relative;
+    top: -2.8em;
+    float: left;
+    width: 5em;
+    margin: 0;
+    padding: 30px 20px 50px 20px;
+    font-size: 50px;
+}
+.titleBubble h2:first-of-type {
+    margin-right: 5em;
+}
+/* Learnt how to create triangles from here
+Reference: Coyler, C. (September 29th, 2016). "CSS Triangle". Retrieved from https://css-tricks.com/snippets/css/css-triangle/  */
+.titleBubble #leftTri, .titleBubble #rightTri {
+    position: absolute;
+    top: 19em;
+    width: 0; 
+    height: 0; 
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-top: 90px solid #e7f9ff;
+}
+.titleBubble #leftTri {
+    transform: rotate(20deg)
+}
+.titleBubble #rightTri {
+    left: 42em;
+    transform: rotate(340deg)
+}
+.titleBubble h3 {
+    position: relative;
+    top: -4.5em;
+    left: 4em;
+    width: 20em;
+    margin: 0;
+    text-align: center;
+    font-size: 28px;
+    color: white;
+}
+
+/* Presidents Side-view Silhouette */
+#T-Sil, #O-Sil {
+    position: relative;
+    top: 25em;
+}
+#T-Sil {
+    float: left;
+}
+#O-Sil {
+    float: right;
+}
+
+/* Content Section 1:  Introduction & Content */
+/* Pronoun Oxford Definition */
+/* Reference: Oxford. (n.d.). "pronoun". LEXICO. Retrieved from https://www.lexico.com/definition/Pronoun */
+.define {
+    position: absolute;
+    top: 55em;
+    padding: 50px 200px;
+    background-color: #e7f9ff;
+}
+.define h3 {
+    animation: textBig 6s;
+    margin-bottom: 0;
+}
+@keyframes textBig {
+    0% {font-size: 0;}
+    100% {size: 15px;}
+}
+.define p {
+    font-size: 25px;
+    line-height: 35px;
+}
+
+/* Images of a tweet showing their personality  */
+.TweetImage {
+    animation: sway 6s infinite;
+}
+@keyframes sway {
+    0% {transform: rotate(-3deg);}
+    25% {transform: rotate(3deg);}
+    50% {transform: rotate(-3deg);}
+    75% {transform: rotate(3deg);}
+    100% {transform: rotate(-3deg);}
+}
+.TweetImage img {
+    margin: 0 52px;
+    width: 40em;
+    height: 20em;
+    border-radius: 20px;
+    box-shadow: 5px 10px rgb(197, 161, 61);
+}
+
+/* Content Section 3: Images of the presidents */
+.presidentImage img {
+    position: relative;
+    margin: 0 132px;
+    width: 30em;
+    height: 28em;
+    border: 20px outset rgb(197, 161, 61);
+}
+
+/* Content Section 5: Presidential stance */
+#subTitle {
+    padding: 1.5em 0;
+    text-align: center;
+    color: black;
+    background-color: #e7f9ff;
+}
+/* Speech bubble for each president containing their view on gun control and violence in USA */
+.speechBubble p {
+    margin: 20px 50px 0 50px;
+    padding: 20px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    background-color: #e7f9ff;
+    box-shadow: 5px 5px 5px black;
+}
+.speechBubble:last-of-type p {
+    padding: 125px 20px;
+}
+.speechBubble a {
+    position: relative;
+    right: -12em;
+    font-size: 15px;
+}
+.speechBubble figure {
+    position: relative;
+    left: 10px;
+}
+.speechBubble #speechTri {
+    width: 0; 
+    height: 0; 
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-top: 60px solid #e7f9ff;
+}
+.speechBubble #figureHead, .speechBubble #figureBody {
+    border-radius: 100%;
+    box-shadow: 2px 2px black;
+}
+.speechBubble #figureHead {
+    left: 0;
+    margin-bottom: 15px;
+    width: 100px;
+    height: 100px;
+}
+.speechBubble #figureBody {
+    left: -10px;
+    width: 125px;
+    height: 150px;
+}
+.speechBubble:first-of-type #figureHead, .speechBubble:first-of-type #figureBody {
+    background-color: #fa5252f5;
+}
+.speechBubble:last-of-type #figureHead, .speechBubble:last-of-type #figureBody {
+    background-color: #95D2EC;
+}
+.speechBubble td:last-of-type {
+    border-bottom: 10px dashed white;
+}
+.speechBubble iframe {
+    margin: 30px 20px 40px 20px;
+    width: 465px;
+    height: 320px;
+}
+/* sentimentGun: A live line chart that shows the sentiment value for obama's and trump's gun topic tweets */
+.content:nth-of-type(5) aside {
+    clear: both;
+}
+#sentimentGun {
+    margin-top: 40px;
+    width: 100%;
+    height: 500px;
+    border-top: 15px solid #774371;
+    border-bottom: 15px solid #774371;
+}
+/* Wanted to edit a selected graph's modebar in regards to its width, height and positioning
+Reference: Miro. (July 18, 2017). 'Place the modeBar at top center using plotly.js'. stackoverflow. Retrieved from https://stackoverflow.com/questions/45173726/place-the-modebar-at-top-center-using-plotly-js */
+#sentimentGun .plotly .modebar {
+    padding-top: 100px;
+    padding-right: 15px;
+    width: 80px;
+    height: 100%;
+}
+#sentimentGun .plotly .modebar-container {
+    width: 80px;
+    background-color: #87afbd;
+}
+
+/* Content Section 7: Types of Pronouns used by the Presidents */
+.content:nth-of-type(7) {
+    width: 100%;
+    padding: 40px 0;
+    background-color: #e7f9ff;
+}
+#type {
+    float: left;
+    width: 67%;
+}
+#type h3 {
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+}
+#type .possessive, #type .reflexive {
+    margin-top: 50px;
+}
+/* Learnt how to position the text within the middle of the circle with the use of line-height being the same size as the width and height
+Reference: Jawad & augusto. (May 17, 2013). "How to draw a circle with text in the middle?". stack overflow. Retrieved from https://stackoverflow.com/questions/16615403/how-to-draw-a-circle-with-text-in-the-middle */
+#type button, #type p {
+    float: left;
+    color: white;
+    border-radius: 100%;
+}
+#type .personal button, #type .personal p {
+    background-color: #7686C5;
+}
+#type .object button, #type .object p {
+    background-color: #3454D1;
+}
+#type .possessive button, #type .possessive p {
+    background-color: #34D1BF;
+}
+#type .reflexive button, #type .reflexive p {
+    background-color: #D1345B;
+}
+#type button {
+    margin: 20px 30%;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-weight: bold;
+    font-size: 22px;
+    border: 5px solid white;
+    box-shadow: 4px 2px black;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+}
+/* This will when hovered over change the size of the button to indicate an interaction point for viewers
+Reference: w3schools. (n.d.). "CSS 2D Transforms". Retrieved from https://www.w3schools.com/css/css3_2dtransforms.asp */
+#type button:hover {
+    transform: scale(0.8, 0.8);
+    background-color: rgb(197, 161, 61);
+}
+#type p {
+    position: relative;
+    left: 49%;
+    margin: 0 7px;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    border: 2px solid white;
+}
+#type #pronounP1, #type #pronounO1, #type #pronounS1, #type #pronounR1, #type #pronounP2, #type #pronounO2, #type #pronounS2, #type #pronounR2 {
+    display: none;
+}
+.guide {
+    position: absolute;
+    top: 8em;
+    right: -20em;
+    animation: sidetoside 4s infinite;
+}
+@keyframes sidetoside {
+    0% {right: -16em;};
+    100% {right: 3em;};
+}
+/* span content has a html arrow from online
+/Reference: Toptal Designers. (2021). 'Right Arrow'. Retrieved from https://www.toptal.com/designers/htmlarrows/arrows/right-arrow/ */
+.guide span {
+    content: "\2192";
+    font-size: 200px;
+    margin-left: 1em;
+}
+/* Mini Graph:  */
+.note {
+    float: right;
+    position: absolute;
+    top: 0;
+    right: -32%;
+    width: 30%;
+    padding: 10px;
+    color: white;
+    background-color: #8b9ca1;
+    border-bottom-left-radius: 10%;
+    border-left: 40px solid #774371;
+    transition: all 0.3s ease-out;
+}
+/* The class .active created from js to make element stay in hovered position */
+.note:hover, .note.active {
+    right: 0em;
+    cursor: pointer;
+}
+.note h4 {
+    width: 80%;
+    margin: 10px auto 0 auto;
+    padding: 10px;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: 2px 2px black;
+}
+.note h4 strong:first-of-type {
+    color: #95D2EC;
+}
+.note h4 strong:last-of-type {
+    color: #bd2a2af5;
+}
+.note .input-field {
+    width: 100%;
+    margin: 10px 0;
+    padding-left: 80px;
+    font-weight: bold;
+}
+.note .input-field .tweetdata {
+    width: 150px
+}
+/* gproGraph: A small scatter graph showing the presidents use of gender pronouns in their tweets */
+.note #gproGraph {
+    width: 100%;
+    height: 400px;
+    margin: 0 10px 40px 10px;
+}
+.note #gproGraph .plotly .modebar {
+    width: 450px;
+    height: 100px;
+}
+.note p {
+    position: relative;
+    bottom: 2em;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Content Section 8: Type of Pronouns Scatter Graph and Counter  */
+.content:nth-of-type(8) {
+    width: 96.5%;
+    margin: 10px;
+    padding: 15px;
+    background-color: #e7f9ff;
+    border-radius: 30px;
+    border-top: 10px outset #774371;
+    border-bottom: 10px outset #774371;
+}
+#paragraph4, #paragraph5 {
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 35px;
+}
+#paragraph4 {
+    margin-bottom: 0;
+}
+.largeGraph {
+    float: left;
+}
+/* TypeScatter - A scatter graph that shows the different pronouns the president used in their tweets relating to gun violence and control */
+.largeGraph #TypeScatter {
+    width: 98.5%;
+    height: 850px;
+    margin: 30px 10px;
+}
+.largeGraph #TypeScatter .plotly .modebar {
+    top: 30%;
+    width: 100px;
+}
+/* Altered the modebar container because when moving the modebar it was left behind and so was preventing the mouse from hovering over that area of the chart */
+.largeGraph #TypeScatter .plotly .modebar-container { 
+    left: -10px;
+    width: 60px;
+}
+.largeGraph h4 {
+    margin: 10px 0 10px 60px;
+    font-size: 40px;
+    text-align: left;
+    color: rgb(197, 161, 61);
+    text-shadow: 3px 2px 4px white;
+}
+.largeGraph .GraphCounter {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+}
+.largeGraph .GraphCounter th {
+    font-size: 25px;
+    border-top-left-radius: 20px; 
+    border-bottom-left-radius: 20px;
+}
+.largeGraph .GraphCounter tr td, .largeGraph .GraphCounter tr th {
+    padding: 25px;
+}
+.largeGraph .GraphCounter tr:first-child td:not(td:first-of-type) {
+    color: white;
+    border-top-left-radius: 20px; 
+    border-top-right-radius: 20px;
+}
+.largeGraph .GraphCounter tr:nth-of-type(2) th, .largeGraph .GraphCounter tr:nth-of-type(2) td {
+    background-color: #e44848f5;
+    text-align: center;
+    border-bottom: 5px solid rgb(180, 45, 45)f5;
+}
+.largeGraph .GraphCounter tr:last-of-type th, .largeGraph .GraphCounter tr:last-of-type td {
+    background-color: #95D2EC;
+    text-align: center;
+    border-bottom: 5px solid #82bdd6;
+} 
+.largeGraph .GraphCounter td div {
+    margin: 5px 25%;
+    font-size: 30px;
+} 
+#paragraph5 {
+    width: 100%;
+}
+#paragraph5 img {
+    display: block;
+    margin: 0 auto;
+    width: 70%;
+}
+#paragraph5 table {
+    margin-top: 25px;
+}
+#paragraph5 table td:nth-of-type(2) img {
+    margin-bottom: 10px;
+    width: 60%;
+}
+
+/* Content Section 9: Usage Section */
+#usage {
+    margin: 0 80px;
+}
+#usage h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: right;
+    color: white;
+}
+#usage p {
+    text-align: right;
+    font-size: 15px;
+    color: white;
+}
+#usage p strong {
+    padding: 5px;
+    background-color: goldenrod;
+}
+#usage table tr:first-of-type th:first-of-type {
+    background-color: transparent;
+}
+/* Produce the disappear and reappear effect on the text by changing the colour when hovered over */
+#usage table th {
+    padding: 10px;
+    font-size: 25px;
+    color: rgb(197, 161, 61);
+    background-color: rgb(197, 161, 61);
+    transition: 0.4s ease-in-out;
+}
+#usage table th:hover {
+    color: black;
+    cursor: pointer;
+}
+#usage table td:first-child {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #9c6296;
+}
+#usage table td {
+    width: 50em;
+    padding: 20px;
+    background-color: #e7f9ff;
+    border: 1px solid black;
+}
+
+/* Content Section 10: Narrative Style section */
+.content:nth-of-type(10) {
+    margin-top: 0;
+}
+.content:nth-of-type(10) div {
+    width: 44%;
+    padding: 10px 40px;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+}
+.content:nth-of-type(10) div:first-of-type {
+    text-align: left;
+    color: rgb(236, 236, 236);
+}
+.content:nth-of-type(10) div:last-of-type {
+    text-align: right;
+}
+.content:nth-of-type(10) div #paraBorder {
+    width: 90%;
+    height: 15px;
+    margin-top: 20px;
+    border-bottom: 20px solid rgb(197, 161, 61);
+}
+.content:nth-of-type(10) div:first-of-type #paraBorder {
+    background-color: white;
+}
+.content:nth-of-type(10) div:last-of-type #paraBorder {
+    background-color: black;
+}
+
+/* Content Section 11: Conclusion Section  */
+#paragraph6 {
+    margin: 0 0 80px 0;
+}
+#sidenote {
+    padding: 0 20px;
+    font-size: 13px;
+    font-style: italic;
+    color: white;
+} 
+.content:nth-of-type(11) section {
+    width: 100%;
+    background-color: #e7f9ff;
+}
+/* viewsGraph: Mutliple graphs section that shows the different views on gun control and violence in America by the people */
+#viewsGraph {
+    float: none;
+    clear: both;
+    width: 100%;
+    height: 700px;
+    margin-bottom: 6em;
+}
+#viewsGraph .plotly .modebar {
+    top: 35%;
+    right: -1px;
+    width: 5%;
+}
+/* Altered the modebar container because when moving the modebar it was left behind and so was preventing the mouse from hovering over that area of the chart */
+#viewsGraph .plotly .modebar-container { 
+    width: 10%;
+    background-color: #87afbd;
+}
+.content:nth-of-type(11) section img {
+    position: absolute;
+    bottom: 5%;
+    right: 20%;
+    width: 50%;
+    height: 65%;
+    opacity: 0.05;
+}
+
+/* Content Section 12: Footer - Image and Site references used in site */
+footer {
+    position: absolute;
+    bottom: -55em;
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color: white;
+}
+footer table td ul {
+    width: 700px;
+}
+footer table th {
+    font-size: 20px;
+}
+footer table td li {
+    margin: 10px 0;
+    text-align: left;
+}

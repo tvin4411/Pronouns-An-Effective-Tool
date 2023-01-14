@@ -1,2 +1,13 @@
-# USA-Presidents-and-Pronouns
+# DECO3100-A3
+ A3: Intelligent Interactive Twitter Visualisation (DECO3100)
+ In my intelligent interactive twitter visualisation, the story covers how pronouns or lack of has helped political leaders like Trump and Obama in garnering the support they have with their followers. Since filtering the tweets by a list of pronouns produces a large data set I have decided to focus on a topic both presidents had a take on which is gun control and violence in the United States of America. I find this narrative interesting as the way a person presents themselves, especially with those in power, can influence people to take a particular side regardless of the opposing facts. I chose to compare the two presidents because of how they demonstrate contrasting narrative styles in their tweets, Trump favouring interpersonal language over the ideational which is more Obama's style.
+ 
+The overall theme for my design is to emphasise this contrast by separating the page in half, only having overlapping elements in the middle when it involves both sides. This is shown through the colours red and blue as well as images and information that relates to a corresponding side. Concerning my choice of animations, as my site is full of text which can make people lose interest, I wanted to intrigue them to continue reading on with various movement or get their attention towards an element. For my site I have included four graphs that relates to their section, but with the gender pronouns chart its smaller and initially hidden because despite it providing unique insights, it doesn’t relate much to my story as the others do. Moreover, to encourage engagement from my users other than in the graphs, I included opportunities for the user to press buttons and hover over elements to reveal new elements.
+ 
+Nevertheless, after conducting a usability test with 5 of my DECO3100 peers through a questionnaire (Google Form Questions & Responses) and a small discussion afterwards, the findings revealed that the weaknesses I had which I have overcome were:
+•	Unnecessary animations which made people conduct unintended interactions
+•	Aspect ratio for my site caused some elements to go missing or move position
+•	Interactions weren’t as obvious and so might need some altered indicators
+•	Some visuals and designs weren't consistent or were distracting throughout the site
+As for my strengths, users found that they enjoyed the creativeness of the interactivity throughout the site and the graphs provided a range of interesting data and trends. In addition to these changes I have altered the layout and added a navigation bar to ease the reading path for my viewers since the site is quite long.
  
