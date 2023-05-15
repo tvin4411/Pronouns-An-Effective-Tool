@@ -86,16 +86,15 @@ nav {
     height: 46%;
 }
 nav ul {
-    position: absolute;
-    top: 5%;
+    position: fixed;
+    top: 0;
     left: -12.5em;
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 200px;
-    height: 100%;
     background-color: #f1f1f1;
-    border-right: 25px solid goldenrod;
+    border-right: 20px solid goldenrod;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     transition: 0.5s ease-in-out;
@@ -114,7 +113,7 @@ nav ul:hover {
 nav li a {
     display: block;
     color: #000;
-    padding: 20px 15px;
+    padding: 15px;
     text-decoration: none;
     font-weight: bolder;
 }
@@ -232,16 +231,15 @@ Reference: Coyler, C. (September 29th, 2016). "CSS Triangle". Retrieved from htt
 }
 .TweetImage img {
     margin: 0 52px;
-    width: 40em;
-    height: 20em;
+    width: 35em;
+    height: 18em;
     border-radius: 20px;
     box-shadow: 5px 10px rgb(197, 161, 61);
 }
 
 /* Content Section 3: Images of the presidents */
 .presidentImage img {
-    position: relative;
-    margin: 0 132px;
+    margin: 0 auto;
     width: 30em;
     height: 28em;
     border: 20px outset rgb(197, 161, 61);
@@ -260,18 +258,13 @@ Reference: Coyler, C. (September 29th, 2016). "CSS Triangle". Retrieved from htt
     padding: 20px;
     line-height: 35px;
     text-align: center;
-    font-size: 20px;
+    font-size: 15px;
     border-radius: 20px;
     border-bottom-left-radius: 0;
     background-color: #e7f9ff;
     box-shadow: 5px 5px 5px black;
 }
-.speechBubble:last-of-type p {
-    padding: 125px 20px;
-}
 .speechBubble a {
-    position: relative;
-    right: -12em;
     font-size: 15px;
 }
 .speechBubble figure {
@@ -307,10 +300,10 @@ Reference: Coyler, C. (September 29th, 2016). "CSS Triangle". Retrieved from htt
     background-color: #95D2EC;
 }
 .speechBubble td:last-of-type {
-    border-bottom: 10px dashed white;
+    border-bottom: 5px dashed white;
 }
 .speechBubble iframe {
-    margin: 30px 20px 40px 20px;
+    margin: 30px 10px 40px 10px;
     width: 465px;
     height: 320px;
 }
@@ -699,20 +692,19 @@ Reference: w3schools. (n.d.). "CSS 2D Transforms". Retrieved from https://www.w3
 
 /* Content Section 12: Footer - Image and Site references used in site */
 footer {
-    position: absolute;
-    bottom: -55em;
     width: 100%;
-    text-align: center;
-    background-color: black;
+    padding-top: 10px;
+    background-color: lightgray;
+    color: black;
+}
+footer summary {
+    padding: 5px;
+    margin: 0 10px 10px 10px;
+    font-size: 15px;
+    background-color: #774371;
     color: white;
+    cursor: pointer;
 }
-footer table td ul {
-    width: 700px;
-}
-footer table th {
-    font-size: 20px;
-}
-footer table td li {
-    margin: 10px 0;
-    text-align: left;
+footer li {
+    padding: 10px 35px;
 }
